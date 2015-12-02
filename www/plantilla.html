@@ -30,45 +30,31 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <title>Aplicación II</title>
-		<script>
-			$(document).ready(function(e) {
-			
-			$("button").click(function () {
-				$("#BD").load (
-			"http://manwelanza.esy.es/APPII/header.php");
-			});
-			});
-		</script>
     </head>
     <body>
 		<div data-role="page" id="homePage" data-theme="b">
 			<div data-role="header">
-				<h1>Nombre Aplicación</h1>
+				<h1>Nombre aplicación</h1>
 				<div data-role="navbar">
 					<ul>
 						<li><a href="index.html" data-icon="home">Home</a></li>
-						<li><a href="desarrolladores.html" data-icon="info">Developers</a></li>
+						<li><a href="desarrolladores.html" data-icon="info">Desarrolladores</a></li>
 						<li><a href="enfermedades.html" data-icon="grid">Diseases</a></li>
 						<li><a href="ingredientes.html" data-icon="grid">Ingredients</a></li>
 					</ul>
 				</div>
-		</div>
+			</div>
 			<div data-role="main" class="ui-content">
-			<form id="randomFood">
-				<button type="submit">Random food</button>
-			</form>
-			<section id="resultados"> </section>
-			<section id="respuesta"> </section>
-			
+				
 			</div>
 			
 			<div data-role="footer">
 				<h1>Mensaje final aplicación</h1>
 			</div>
 		</div> 
-		<script type="text/javascript" src="js/randomFood.js"></script>
+
+  
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
