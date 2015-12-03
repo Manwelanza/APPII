@@ -48,15 +48,30 @@
 				<h1>Nombre Aplicación</h1>
 				<div data-role="navbar">
 					<ul>
-						<li><a href="index.html" data-icon="home">Home</a></li>
-						<li><a href="desarrolladores.html" data-icon="info">Developers</a></li>
-						<li><a href="enfermedades.html" data-icon="grid">Diseases</a></li>
-						<li><a href="ingredientes.html" data-icon="grid">Ingredients</a></li>
+						<li><a href="index.html" data-icon="home"><font color="aqua"><b>Home</b></font></a></li>
+						<li><a href="desarrolladores.html" data-transition="slide" data-icon="info">Developers</a></li>
+						<li><a href="enfermedades.html" data-transition="slide" data-icon="grid">Diseases</a></li>
+						<li><a href="ingredientes.html" data-transition="slide" data-icon="grid">Ingredients</a></li>
 					</ul>
 				</div>
 		</div>
 			<div data-role="main" class="ui-content">
 			<form id="randomFood">
+				<fieldset data-role="controlgroup">
+					<legend>Sugar:</legend>
+						<label for="sugarYes">Yes</label>
+						<input type="radio" name="sugar" id="sugarYes" value="sugarYes">
+						<label for="sugarNo">No</label>
+						<input type="radio" name="sugar" id="sugarNo" value="sugarNo">	
+				</fieldset>
+				
+				<fieldset data-role="controlgroup">
+					<legend>Energy:</legend>
+						<label for="energyLow">Low</label>
+						<input type="radio" name="energy" id="energyLow" value="energyLow">
+						<label for="energyNormal">Normal</label>
+						<input type="radio" name="energy" id="energyNormal" value="energyNormal">	
+				</fieldset>			
 				<button type="submit">Random food</button>
 			</form>
 			<section id="resultados"> </section>
