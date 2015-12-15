@@ -31,6 +31,9 @@
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script src="plugins/cordova-plugin-device-motion/www/Acceleration.js"></script>
+		<script src="plugins/cordova-plugin-device-motion/www/accelerometer.js"></script>
         <title>Aplicación II</title>
 		<script>
 			$(document).ready(function(e) {
@@ -40,6 +43,30 @@
 			"http://manwelanza.esy.es/APPII/header.php");
 			});
 			});
+		</script>
+
+		<script>
+			var acceleration;
+			window.onload = function (argument) {
+				document.addEventListener("deviceready", onDeviceReady, false);
+				function onDeviceReady() {
+				    acceleration = navigator.accelerometer;
+
+				}
+
+				function onSuccess(acceleration) {
+				    alert('Acceleration X: ' + acceleration.x + '\n' +
+				          'Acceleration Y: ' + acceleration.y + '\n' +
+				          'Acceleration Z: ' + acceleration.z + '\n' +
+				          'Timestamp: '      + acceleration.timestamp + '\n');
+				}
+
+				function onError() {
+				    alert('onError!');
+				}
+				var option = {frequency: 3000};
+				acceleration.watchAcceleration(onSuccess, onError, option);
+			}
 		</script>
     </head>
     <body>
@@ -84,7 +111,6 @@
 			</div>
 		</div> 
 		<script type="text/javascript" src="js/randomFood.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
