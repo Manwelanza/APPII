@@ -1,32 +1,45 @@
 var prevX = 0;
 var firstTime = true;
-var paginaActual = 0;
-var arrayEnlaces = ["index.html", "desarrolladores.html", "enfermedades.html", "ingredientes.html"];
+var arrayEnlaces = new Array("index.html", "desarrolladores.html", "enfermedades.html", "ingredientes.html");
+// Asignamos la página actual dependiendo de la url actual
+var regex = /.+\/www\/(.*)/g;
+var url = window.location.pathname;
+var paginaActual;
+url = url.replace(regex, "\\$1");
+
+if(url == ("\\" + arrayEnlaces[0]))
+	paginaActual = 0;
+else if(url == ("\\" + arrayEnlaces[1]))
+	paginaActual = 1;
+else if(url == ("\\" + arrayEnlaces[2]))
+	paginaActual = 2;
+else if(url == ("\\" + arrayEnlaces[3]))
+	paginaActual = 3;
+
 
 function onSuccessAccelerometer (acceleration) {
-
-	// Control de movimiento a la izquierda
-	if(acceleration.x - prevX < -5 && firstTime == false) {
-		//alert("Te has movido a la derecha");
-
-		if(paginaActual == arrayEnlaces.lenght - 1)
+	// Control de movimiento a la derecha
+	if(acceleration.x - prevX < -7 && firstTime == false) {
+		if(paginaActual == arrayEnlaces.length - 1) {
 			paginaActual = 0;
-		else
+		}
+		else {
 			paginaActual++;
-
+		}
 		window.location = arrayEnlaces[paginaActual];
+		//alert("Current page = " + paginaActual);
 	}
 
-	// Control de movimiento a la derecha
-	else if(acceleration.x - prevX > 5 && firstTime == false){
-		//alert("Te has movido a la izquierda");
-
-		if(paginaActual == 0)
-			paginaActual = arrayEnlaces.lenght - 1;
-		else
+	// Control de movimiento a la izquierda
+	else if(acceleration.x - prevX > 7 && firstTime == false) {
+		if(paginaActual == 0) {
+			paginaActual = arrayEnlaces.length - 1;
+		}
+		else {
 			paginaActual--;
-		
+		}
 		window.location = arrayEnlaces[paginaActual];
+		//alert("Current page = " + paginaActual);
 	}
 
 	prevX = acceleration.x;
@@ -41,5 +54,5 @@ function onErrorAccelerometer () {
 	alert("Error!");
 }
 
-// Se actualizará el acelerómetro cada 0.5s
-var optionsAccelerometer = {frequency: 500};
+// Se actualizará el acelerómetro cada 0.2s
+var optionsAccelerometer = {frequency: 200};

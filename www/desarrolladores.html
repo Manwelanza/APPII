@@ -33,6 +33,21 @@
         <title>Aplicación II</title>
     </head>
     <body>
+    	<!-- Script previo -->
+    	<script type="text/javascript">
+    		document.addEventListener("deviceready", onDeviceReady, false);
+    		function onDeviceReady () {
+    			// Operaciones con geolocalización
+    			navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+
+    			// Operaciones con acelerómetro
+				navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
+			}
+    	</script>
+
+    	<script type="text/javascript" src="js/getLocation.js"></script>
+    	<script type="text/javascript" src="js/getAccelerometer.js"></script>
+    	
 		<div data-role="page" id="homePage" data-theme="b">
 			<div data-role="header">
 				<h1>Nombre aplicación</h1>
