@@ -1,10 +1,11 @@
 var place;
 
 function onSuccessGeolocation (position) {
-	alert("Chivato");
 	var latidude = position.coords.latitude;
 	var longitude = position.coords.longitude;
+	alert("Chivato");
 	var address = new google.maps.LatLng(latitude, longitude);
+	alert("Chivato3");
 	var coords = new google.maps.places.Autocomplete(address);
 	cords.setTypes(['geocode']);
 	google.maps.event.addListener(coords, 'place_changed', function () {
