@@ -33,6 +33,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="cordova.js"></script>5
         <title>Aplicación II</title>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 		<script>
 			$(document).ready(function(e) {
 			
@@ -44,9 +45,19 @@
 		</script>
     </head>
     <body>
+    	<!-- Script previo -->
+    	<script type="text/javascript">
+    		document.addEventListener("deviceready", onDeviceReady, false);
+    		function onDeviceReady () {
+				navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
+
+				// Añadir aquí lo de geolocalización
+			}
+    	</script>
+
     	<script type="text/javascript" src="js/getLocation.js"></script>
     	<script type="text/javascript" src="js/getAccelerometer.js"></script>
-    	
+
 		<div data-role="page" id="homePage" data-theme="b">
 			<div data-role="header">
 				<h1>Nombre Aplicación</h1>

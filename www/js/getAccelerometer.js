@@ -1,14 +1,27 @@
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady () {
-	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
+var prevX = 0;
+var firstTime = true;
+
+function onSuccessAccelerometer (acceleration) {
+	// Control de movimiento a la izquierda
+	if(acceleration.x - prevX < -9 && firstTime == false) {
+		//alert("Te has movido a la derecha");
+	}
+
+	// Control de movimiento a la derecha
+	else if(acceleration.x - prevX > 9 && firstTime == false){
+		//alert("Te has movido a la izquierda");
+	}
+
+	prevX = acceleration.x;
+	// Controlamos que sea la primera ejecucicón para darle un valor a prevX
+	
+	if(firstTime == true) {
+		firstTime = false;
+	}
 }
 
-function onSuccess (acceleration) {
-	alert('Acceleration X: ' + acceleration.x);
-	//alert("Latidud: " + position.coords.latitude);
-}
-
-function onError () {
+function onErrorAccelerometer () {
 	alert("Error!");
 }
+
+var optionsAccelerometer = {frequency: 500};
