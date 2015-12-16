@@ -46,7 +46,7 @@
     			navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
 
     			// Operaciones con acelerómetro
-				//navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
+				navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
 			}
     	</script>
 
@@ -58,10 +58,18 @@
 				<h1>Nombre Aplicación</h1>
 				<div data-role="navbar">
 					<ul>
-						<li><a href="index.html" data-icon="home"><font color="aqua"><b>Home</b></font></a></li>
-						<li><a href="desarrolladores.html" data-transition="slide" data-icon="info">Developers</a></li>
-						<li><a href="enfermedades.html" data-transition="slide" data-icon="grid">Diseases</a></li>
-						<li><a href="ingredientes.html" data-transition="slide" data-icon="grid">Ingredients</a></li>
+						<li>
+							<a href="index.html" data-icon="home"><font color="aqua"><b>Home</b></font></a>
+						</li>
+						<li>
+							<a href="desarrolladores.html" data-transition="slide" data-icon="info">Developers</a>
+						</li>
+						<li>
+							<a href="enfermedades.html" data-transition="slide" data-icon="grid">Diseases</a>
+						</li>
+						<li>
+							<a href="ingredientes.html" data-transition="slide" data-icon="grid">Ingredients</a>
+						</li>
 					</ul>
 				</div>
 		</div>

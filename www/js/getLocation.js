@@ -3,15 +3,13 @@ var place;
 function onSuccessGeolocation (position) {
 	var latidude = position.coords.latitude;
 	var longitude = position.coords.longitude;
-	alert("Chivato");
+	// TODO: Problema con esta linea, mirar
 	var address = new google.maps.LatLng(latitude, longitude);
-	alert("Chivato3");
 	var coords = new google.maps.places.Autocomplete(address);
 	cords.setTypes(['geocode']);
 	google.maps.event.addListener(coords, 'place_changed', function () {
 		place = coords.getPlace();
 		if (!place.geometry) {
-			alert("Chivato2");
 			return ;
 		}
 		var address = '';
