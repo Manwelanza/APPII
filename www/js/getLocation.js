@@ -1,5 +1,7 @@
-var place = null;
-var onSuccessGeolocation (position) {
+var place;
+
+function onSuccessGeolocation (position) {
+	alert("Chivato");
 	var latidude = position.coords.latitude;
 	var longitude = position.coords.longitude;
 	var address = new google.maps.LatLng(latitude, longitude);
@@ -8,6 +10,7 @@ var onSuccessGeolocation (position) {
 	google.maps.event.addListener(coords, 'place_changed', function () {
 		place = coords.getPlace();
 		if (!place.geometry) {
+			alert("Chivato2");
 			return ;
 		}
 		var address = '';
@@ -20,4 +23,8 @@ var onSuccessGeolocation (position) {
 		}
 	});
 	alert (place);
+}
+
+ function onErrorGeolocation () {
+	alert("Error!");
 }
