@@ -51,7 +51,7 @@ function onSuccessAccelerometer (acceleration) {
 }
 
 function onErrorAccelerometer () {
-	alert("Error!");
+	alert("ERROR: ACCELEROMETER NOT FOUND!");
 }
 
 // Se actualizará el acelerómetro cada 0.2s

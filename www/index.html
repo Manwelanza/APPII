@@ -33,25 +33,25 @@
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="cordova.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=EN"></script>
+		
         <title>Aplicación II</title>
     </head>
     <body>
     	<!-- Script previo -->
     	<script type="text/javascript">
+			var n_food = 0;
     		document.addEventListener("deviceready", onDeviceReady, false);
     		function onDeviceReady () {
-    			// Operaciones con geolocalización
-    			navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
-
     			// Operaciones con acelerómetro
-				navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
+				//navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
+				navigator.accelerometer.watchAcceleration(onSuccessAccelerometer2, onErrorAccelerometer2, optionsAccelerometer2);
 			}
     	</script>
 
     	<script type="text/javascript" src="js/getLocation.js"></script>
     	<script type="text/javascript" src="js/getAccelerometer.js"></script>
+		<script type="text/javascript" src="js/getAccelerometer2.js"></script>
     	
 		<div data-role="page" id="homePage" data-theme="b">
 			<div data-role="header">
@@ -89,7 +89,16 @@
 						<input type="radio" name="energy" id="energyLow" value="energyLow">
 						<label for="energyNormal">Normal</label>
 						<input type="radio" name="energy" id="energyNormal" value="energyNormal">	
-				</fieldset>			
+				</fieldset>		
+
+				<fieldset data-role="controlgroup">
+					<legend>Do you want to eat local food?</legend>
+						<label for="gpsYes">Yes</label>
+						<input type="radio" name="gps" id="gpsYes" value="gpsYes">
+						<label for="gpsNo">No</label>
+						<input type="radio" name="gps" id="gpsNo" value="gpsNo">	
+				</fieldset>	
+				
 				<button type="submit">Random food</button>
 			</form>
 			<section id="resultados"> </section>
