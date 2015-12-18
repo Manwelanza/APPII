@@ -14,7 +14,11 @@ function onSuccessGeolocation (position) {
 		{
 			if (results[0])
 			{
-				country = results[0].address_components[5].long_name;
+				for (var i = 0; i < results[0].address_components.length; i++) {
+					if (results[0].address_components[i].types[0] == "country") {
+						country = results[0].address_components[i].long_name;
+					}
+				}
 			}
 			else
 			{
@@ -26,6 +30,7 @@ function onSuccessGeolocation (position) {
 			country = "World";
 		}
 	$('#resultados').hide();
+	alert (country);
 	ajaxCall();
 	});
 }
