@@ -16,12 +16,15 @@
 		$sugar = 1000; // Si azúcar alto, no importa, por lo tanto "+infinito"
 	}
 
-	/*if ($_POST['energy'] == "energyNormal") {
-		$energy = 500;
+	if ($_POST['energy'] == "energyLow") {
+		$energy = 601.0;
+	}
+	elseif ($_POST['energy'] == "energyMod") {
+		$energy = 801.0;
 	}
 	else {
-		$energy = 150;
-	}*/
+		$energy = 10000.0;
+	}
 
 	//$resultado['respuesta'] =  "Vas a tomar " .$sugar. " y " .$energy. " calorias";
 
@@ -34,7 +37,14 @@
 				SELECT *
 				FROM FOOD_INGREDIENT FO, INGREDIENT INGRE 
 				WHERE (FOOD.id_food=FO.id_food) AND (FO.id_ingredient=INGRE.id_ingredient) AND
-						(INGRE.sugar>' . $sugar . '));';
+						(INGRE.sugar>' . $sugar . ')) AND (' . $energy . '>(
+							SELECT SUM(energy)
+							FROM INGREDIENT INGRE
+							WHERE INGRE.id_ingredient IN (
+								SELECT id_ingredient
+								FROM FOOD_INGREDIENT FO
+								WHERE (FOOD.id_food=FO.id_food) AND (FO.type<>"a bit"))));';
+
 	}
 	else {
 		$place = $_POST['place'];
@@ -44,7 +54,13 @@
 				SELECT *
 				FROM FOOD_INGREDIENT FO, INGREDIENT INGRE 
 				WHERE (FOOD.id_food=FO.id_food) AND (FO.id_ingredient=INGRE.id_ingredient) AND
-						(INGRE.sugar>' . $sugar . '));';
+						(INGRE.sugar>' . $sugar . ')) AND (' . $energy . '>(
+							SELECT SUM(energy)
+							FROM INGREDIENT INGRE
+							WHERE INGRE.id_ingredient IN (
+								SELECT id_ingredient
+								FROM FOOD_INGREDIENT FO
+								WHERE (FOOD.id_food=FO.id_food) AND (FO.type<>"a bit"))));';
 	}
 	/*$sql = 'SELECT * 
 			FROM FOOD 
