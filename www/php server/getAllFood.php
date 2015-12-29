@@ -7,10 +7,10 @@
 
 	//ANALIZAMOS LOS DATOS
 	if ($_POST['sugar'] == "sugarLow") {
-		$sugar = 35; // Si azúcar bajo, no puede ser mayor que 35
+		$sugar = 36; // Si azúcar bajo, no puede ser mayor que 35
 	}
 	elseif ($_POST['sugar'] == "sugarMod"){
-		$sugar = 50; // Si azúcar medio, no puede ser mayor que 50
+		$sugar = 51; // Si azúcar medio, no puede ser mayor que 50
 	}
 	else {
 		$sugar = 1000; // Si azúcar alto, no importa, por lo tanto "+infinito"
