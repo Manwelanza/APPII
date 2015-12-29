@@ -26,7 +26,9 @@ $(document).ready(function() {
       data: {
 		place: country,
 		sugar: $('input:radio[name=sugar]:checked').val(),
-		energy: $('input:radio[name=energy]:checked').val()
+		energy: $('input:radio[name=energy]:checked').val(),
+		sodium: $('input:radio[name=sodium]:checked').val(),
+		fats: $('input:radio[name=fats]:checked').val()
 	  },
       type: 'POST',
       dataType: 'json',
