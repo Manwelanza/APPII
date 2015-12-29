@@ -30,20 +30,25 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=EN"></script>
         <title>Aplicación II</title>
     </head>
     <body>
     	<!-- Script previo -->
     	<script type="text/javascript">
+			var n_food = 0;
     		document.addEventListener("deviceready", onDeviceReady, false);
     		function onDeviceReady () {
     			// Operaciones con acelerómetro
-				navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
+				//navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, optionsAccelerometer);
+				navigator.accelerometer.watchAcceleration(onSuccessAccelerometer2, onErrorAccelerometer2, optionsAccelerometer2);
 			}
     	</script>
 
     	<script type="text/javascript" src="js/getLocation.js"></script>
     	<script type="text/javascript" src="js/getAccelerometer.js"></script>
+		<script type="text/javascript" src="js/getAccelerometer2.js"></script>
 		<div data-role="page" id="homePage" data-theme="b">
 			<div data-role="header">
 				<h1>Nombre aplicación</h1>
@@ -58,9 +63,9 @@
 			</div>
 			<div data-role="main" class="ui-content">
 				
-				<form method="post" action="demoform.asp">
+				<form id="randomFoodDiseases">
 					<fieldset data-role="controlgroup">
-						<legend>Choose as many diseases as you've:</legend>
+						<legend>Choose as many diseases as you have:</legend>
 							<label for="diabetes">Diabetes</label>
 							<input type="checkbox" name="chooseDisease" id="diabetes" value="diabetes">
 							<label for="hypertension">Hypertension</label>
@@ -71,9 +76,17 @@
 							<input type="checkbox" name="chooseDisease" id="lactose" value="lactose">
 							<label for="nuts">Allergy nuts</label>
 							<input type="checkbox" name="chooseDisease" id="nuts" value="nuts">
+							<label for="obesity">Obesity</label>
+							<input type="checkbox" name="chooseDisease" id="obesity" value="obesity">
+							<label for="cholesterol">High cholesterol</label>
+							<input type="checkbox" name="chooseDisease" id="cholesterol" value="cholesterol">
 					</fieldset>
-					<input type="submit" data-inline="true" value="Save">
+					<asp:button onclick="myFunction()">Random food</button>
+					
 				</form>
+				
+				<section id="resultados"> </section>
+				<section id="respuesta"> </section>
 				
 			</div>
 			
@@ -83,7 +96,8 @@
 		</div> 
 
   
-        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/randomFood.js"></script>
+		<script type="text/javascript" src="js/diseases.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();

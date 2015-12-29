@@ -3,11 +3,19 @@ var index = 0;
 var n_food = 0;
 var foods;
 var enabled = true;
+var sugar = "";
+var energy = "";
+var sodium = "";
+var fats = "";
 
 $(document).ready(function() {
   $('#randomFood').submit(function(evento) {
     $('#respuesta').hide();
     evento.preventDefault();
+	sugar = $('input:radio[name=sugar]:checked').val();
+	energy = $('input:radio[name=energy]:checked').val();
+	sodium = $('input:radio[name=sodium]:checked').val();
+	fats = $('input:radio[name=fats]:checked').val();
 	if ($('input:radio[name=gps]:checked').val() == "gpsYes") {
 		// Operacion con geolocalización
 		navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
@@ -17,7 +25,58 @@ $(document).ready(function() {
 		ajaxCall ();
 	}
   });
+  
+  
+  
 });
+
+function myFunction () {
+	  alert ("holaaaaaaa2");
+    $('#respuesta').hide();
+    //evento.preventDefault();
+	// ======================================================
+	// Hacemos todas las comprobaciones de las enfermedades
+	// ======================================================
+	
+	// diabetes
+	alert ("AAAA1");
+	if (document.getElementById("diabetes").checked) {
+		sugar = "sugarLow";
+	}
+	else {
+		sugar = "sugarHigh";
+	}
+	
+	// Tensión alta
+	alert ("AAAA2");
+	if (document.getElementById("hypertension").checked) {
+		sodium = "sodiumLow";
+	}
+	else {
+		sodium = "sodiumHigh";
+	}
+	alert ("AAAA3");
+	// Obesidad
+	if (document.getElementById("obesity").checked) {
+		energy = "energyLow";
+	}
+	else {
+		energy = "energyHigh";
+	}
+	
+	// Colesterol alto
+	alert ("AAAA4");
+	if (document.getElementById("cholesterol").checked) {
+		fats = "fatsLow";
+	}
+	else {
+		fats = "fatsHigh";
+	}
+	country = "World";
+	// Nos conectamos con la base de datos
+	alert ("AAAA");
+	ajaxCall ();
+};
   
   function ajaxCall () {
 	  enabled = false;
@@ -25,10 +84,10 @@ $(document).ready(function() {
       url: 'http://manwelanza.esy.es/APPII/getAllFood.php',
       data: {
 		place: country,
-		sugar: $('input:radio[name=sugar]:checked').val(),
-		energy: $('input:radio[name=energy]:checked').val(),
-		sodium: $('input:radio[name=sodium]:checked').val(),
-		fats: $('input:radio[name=fats]:checked').val()
+		sugar: sugar,
+		energy: energy,
+		sodium: sodium,
+		fats: fats
 	  },
       type: 'POST',
       dataType: 'json',
