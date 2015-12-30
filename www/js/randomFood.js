@@ -7,6 +7,7 @@ var sugar = "";
 var energy = "";
 var sodium = "";
 var fats = "";
+var showResult = false;
 
 $(document).ready(function() {
   $('#randomFood').submit(function(evento) {
@@ -24,6 +25,7 @@ $(document).ready(function() {
 		country = "World";
 		ajaxCall ();
 	}
+	alert ("Search completed");
   });
   
   
@@ -76,6 +78,7 @@ function myFunction () {
 	// Nos conectamos con la base de datos
 	alert ("AAAA");
 	ajaxCall ();
+	alert ("Search completed");
 };
   
   function ajaxCall () {
@@ -128,7 +131,10 @@ function myFunction () {
 		}
 		food += "</ul></li>";
 		food += "</ul></th></tr></tbody></table>";
-		$('#respuesta').html(food).fadeIn('slow');
+		$("#result").html(food).fadeIn('slow');
+		if (!showResult){
+			$("#result").hide();
+		}
 		enabled = true;
       }
     });

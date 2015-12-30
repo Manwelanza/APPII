@@ -36,6 +36,60 @@
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=EN"></script>
 		
         <title>Aplicación II</title>
+		
+		<script>
+			$(document).ready(function(){
+			$("#diseases").hide();
+			$("#result").hide();
+			$("#developers").hide();
+			$("#showFood").css ("color", "aqua");
+				$("#showDiseases").click(function(){
+					$("#diseases").show();
+					$("#food").hide();
+					$("#developers").hide();
+					$("#result").hide();
+					$("#showDiseases").css ("color", "aqua");
+					$("#showFood").css ("color", "white");
+					$("#showResult").css ("color", "white");
+					$("#showDevelopers").css ("color", "white");
+					showResult = false;
+				});
+				$("#showFood").click(function(){
+					$("#food").show();
+					$("#diseases").hide();
+					$("#developers").hide();
+					$("#result").hide();
+					$("#showFood").css ("color", "aqua");
+					$("#showDiseases").css ("color", "white");
+					$("#showResult").css ("color", "white");
+					$("#showDevelopers").css ("color", "white");
+					showResult = false;
+				});
+				$("#showDevelopers").click(function(){
+					$("#developers").show();
+					$("#diseases").hide();
+					$("#food").hide();
+					$("#result").hide();
+					$("#showDevelopers").css ("color", "aqua");
+					$("#showDiseases").css ("color", "white");
+					$("#showResult").css ("color", "white");
+					$("#showFood").css ("color", "white");
+					showResult = false;
+				});
+				$("#showResult").click(function(){
+					$("#result").show();
+					$("#diseases").hide();
+					$("#developers").hide();
+					$("#food").hide();
+					$("#showResult").css ("color", "aqua");
+					$("#showDiseases").css ("color", "white");
+					$("#showDevelopers").css ("color", "white");
+					$("#showFood").css ("color", "white");
+					showResult = true;
+				});
+			});
+		</script>
+		
     </head>
     <body>
     	<!-- Script previo -->
@@ -52,79 +106,134 @@
     	<script type="text/javascript" src="js/getLocation.js"></script>
     	<script type="text/javascript" src="js/getAccelerometer.js"></script>
 		<script type="text/javascript" src="js/getAccelerometer2.js"></script>
+		
     	
 		<div data-role="page" id="homePage" data-theme="b">
+		
+			<!-- Paneles informativos -->
+			<div data-role="panel" id="developer01" data-theme="b"> 
+				<h2>Developer 01</h2>
+				<p>Manuel Alejandro Rodríguez Santana</p>
+				<p>ULL's student of computer engineering</p>
+			</div>
+			
+			<div data-role="panel" id="developer02" data-theme="b"> 
+				<h2>Developer 02</h2>
+				<p>José Carlos Rodríguez Cortés</p>
+				<p>ULL's student of computer engineering</p>
+			</div>
+			<!-- Fin de paneles informativos -->
+		
 			<div data-role="header">
 				<h1>Nombre aplicación</h1>
 					<div data-role="navbar">
 						<ul>
 							<li>
-								<a href="index.html" data-transition="turn" data-icon="home"><font color="aqua">Home</font></a>
+								<button id="showFood" data-icon="home">HOME</button>
 							</li>
 							<li>
-								<a href="desarrolladores.html" data-icon="info"><b>Developers</b></a>
+								<button id="showDiseases" data-icon="grid">Diseases</button>
 							</li>
 							<li>
-								<a href="enfermedades.html" data-transition="slide" data-icon="grid">Diseases</a>
+								<button id="showResult" data-icon="grid">Result</button>
 							</li>
 							<li>
-								<a href="ingredientes.html" data-transition="slide" data-icon="grid">Ingredients</a>
+								<button id="showDevelopers" data-icon="info">Developers</button>
 							</li>
 						</ul>
 					</div>
 			</div>
 			<div data-role="main" class="ui-content">
-			<form id="randomFood">
-				<fieldset data-role="controlgroup">
-					<legend>Sugar:</legend>
-						<label for="sugarLow">Low</label>
-						<input type="radio" name="sugar" id="sugarLow" value="sugarLow">
-						<label for="sugarMod">Moderate</label>
-						<input type="radio" name="sugar" id="sugarMod" value="sugarMod">
-						<label for="sugarHigh">It doesn't matter!</label>
-						<input type="radio" name="sugar" id="sugarHigh" value="sugarHigh">							
-				</fieldset>
-				
-				<fieldset data-role="controlgroup">
-					<legend>Energy:</legend>
-						<label for="energyLow">Low</label>
-						<input type="radio" name="energy" id="energyLow" value="energyLow">
-						<label for="energyMod">Moderate</label>
-						<input type="radio" name="energy" id="energyMod" value="energyMod">
-						<label for="energyHigh">It doesn't matter!</label>
-						<input type="radio" name="energy" id="energyHigh" value="energyHigh">						
-				</fieldset>
+				<div id="food">
+					<form id="randomFood">
+						<fieldset data-role="controlgroup">
+							<legend>Sugar:</legend>
+								<label for="sugarLow">Low</label>
+								<input type="radio" name="sugar" id="sugarLow" value="sugarLow">
+								<label for="sugarMod">Moderate</label>
+								<input type="radio" name="sugar" id="sugarMod" value="sugarMod">
+								<label for="sugarHigh">It doesn't matter!</label>
+								<input type="radio" name="sugar" id="sugarHigh" value="sugarHigh">							
+						</fieldset>
+						
+						<fieldset data-role="controlgroup">
+							<legend>Energy:</legend>
+								<label for="energyLow">Low</label>
+								<input type="radio" name="energy" id="energyLow" value="energyLow">
+								<label for="energyMod">Moderate</label>
+								<input type="radio" name="energy" id="energyMod" value="energyMod">
+								<label for="energyHigh">It doesn't matter!</label>
+								<input type="radio" name="energy" id="energyHigh" value="energyHigh">						
+						</fieldset>
 
-				<fieldset data-role="controlgroup">
-					<legend>Sodium:</legend>
-						<label for="sodiumLow">Low</label>
-						<input type="radio" name="sodium" id="sodiumLow" value="sodiumLow">
-						<label for="sodiumMod">Moderate</label>
-						<input type="radio" name="sodium" id="sodiumMod" value="sodiumMod">
-						<label for="sodiumHigh">It doesn't matter!</label>
-						<input type="radio" name="sodium" id="sodiumHigh" value="sodiumHigh">						
-				</fieldset>
-				
-				<fieldset data-role="controlgroup">
-					<legend>Fats:</legend>
-						<label for="fatsLow">Low</label>
-						<input type="radio" name="fats" id="fatsLow" value="fatsLow">
-						<label for="fatsMod">Moderate</label>
-						<input type="radio" name="fats" id="fatsMod" value="fatsMod">
-						<label for="fatsHigh">It doesn't matter!</label>
-						<input type="radio" name="fats" id="fatsHigh" value="fatsHigh">						
-				</fieldset>
+						<fieldset data-role="controlgroup">
+							<legend>Sodium:</legend>
+								<label for="sodiumLow">Low</label>
+								<input type="radio" name="sodium" id="sodiumLow" value="sodiumLow">
+								<label for="sodiumMod">Moderate</label>
+								<input type="radio" name="sodium" id="sodiumMod" value="sodiumMod">
+								<label for="sodiumHigh">It doesn't matter!</label>
+								<input type="radio" name="sodium" id="sodiumHigh" value="sodiumHigh">						
+						</fieldset>
+						
+						<fieldset data-role="controlgroup">
+							<legend>Fats:</legend>
+								<label for="fatsLow">Low</label>
+								<input type="radio" name="fats" id="fatsLow" value="fatsLow">
+								<label for="fatsMod">Moderate</label>
+								<input type="radio" name="fats" id="fatsMod" value="fatsMod">
+								<label for="fatsHigh">It doesn't matter!</label>
+								<input type="radio" name="fats" id="fatsHigh" value="fatsHigh">						
+						</fieldset>
 
-				<fieldset data-role="controlgroup">
-					<legend>Do you want to eat local food?</legend>
-						<label for="gpsYes">Yes</label>
-						<input type="radio" name="gps" id="gpsYes" value="gpsYes">
-						<label for="gpsNo">It doesn't matter!</label>
-						<input type="radio" name="gps" id="gpsNo" value="gpsNo">	
-				</fieldset>	
+						<fieldset data-role="controlgroup">
+							<legend>Do you want to eat local food?</legend>
+								<label for="gpsYes">Yes</label>
+								<input type="radio" name="gps" id="gpsYes" value="gpsYes">
+								<label for="gpsNo">It doesn't matter!</label>
+								<input type="radio" name="gps" id="gpsNo" value="gpsNo">	
+						</fieldset>	
+						
+						<button type="submit">Random food</button>
+					</form>
+				</div>
 				
-				<button type="submit">Random food</button>
-			</form>
+				<div id="diseases">
+					<form id="randomFoodDiseases">
+					<fieldset data-role="controlgroup">
+						<legend>Choose as many diseases as you have:</legend>
+							<label for="diabetes">Diabetes</label>
+							<input type="checkbox" name="chooseDisease" id="diabetes" value="diabetes">
+							<label for="hypertension">Hypertension</label>
+							<input type="checkbox" name="chooseDisease" id="hypertension" value="hypertension">
+							<label for="coeliac">Coeliac</label>
+							<input type="checkbox" name="chooseDisease" id="coeliac" value="coeliac">
+							<label for="lactose">Lactose intolerant</label>
+							<input type="checkbox" name="chooseDisease" id="lactose" value="lactose">
+							<label for="nuts">Allergy nuts</label>
+							<input type="checkbox" name="chooseDisease" id="nuts" value="nuts">
+							<label for="obesity">Obesity</label>
+							<input type="checkbox" name="chooseDisease" id="obesity" value="obesity">
+							<label for="cholesterol">High cholesterol</label>
+							<input type="checkbox" name="chooseDisease" id="cholesterol" value="cholesterol">
+					</fieldset>
+					<button type="submit">Random food</button>
+					
+				</form>
+				</div>
+				
+				<div id="result">
+				
+				</div>
+				
+				<div id="developers">
+					<h3>Developers: </h3>
+					<ul data-role="listview">
+						<li><a href="#developer01" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Manuel</a></li>
+						<li><a href="#developer02" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">José Carlos</a></li>
+					</ul><br>
+				</div>
+				
 			<section id="resultados"> </section>
 			<section id="respuesta"> </section>
 			
