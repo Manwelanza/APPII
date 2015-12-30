@@ -101,7 +101,7 @@ function myFunction () {
         //$('#respuesta').text(datos.respuesta).fadeIn('slow');
 		n_food = datos.respuesta.length;
 		foods = datos.respuesta;
-		index = 0;
+		index = Math.round(Math.random()* (n_food - 1));
 		showFood ();
       }
     });
