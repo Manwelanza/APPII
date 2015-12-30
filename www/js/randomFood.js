@@ -109,11 +109,10 @@ function myFunction () {
   
   function showFood () {
 	  enabled = false;
-	  $('#respuesta').hide();
-	food = "<table data-role=\"table\" class=\"ui-responsive\">";
-	food += "<thead><tr><th></th><th></th></tr></thead>";
-	food += "<tbody><tr><th><img src=\"" + foods[index]["url_image"] + "\" height=\"120\" width=\"120\"></th><th><ul><li><b>Name:</b> " + foods[index]["name"] + "</li>";
-	food += "<li><b>Country: </b>" + foods[index]["place"] + "</li>";
+	food = "<div class=\"ui-responsive\">"
+	food += "<img src=\"" + foods[index]["url_image"] + "\" height=\"300\" width=\"300\">"
+	food += "<p><b>Name:</b> " + foods[index]["name"] + "</p>";
+	food += "<p><b>Country: </b>" + foods[index]["place"] + "</p>";
 	getIngredients (foods);
   }
   
@@ -127,12 +126,11 @@ function myFunction () {
       type: 'POST',
       dataType: 'json',
       success: function(datos) {
-		food += "<li><b>Ingredients:</b><ul>";
+		food += "<p><b>Ingredients:</b></p><ul>";
 		for (i=0; i < datos.respuesta.length; i++) {
 			food += "<li>" + datos.respuesta[i]["name"] + "</li>";
 		}
-		food += "</ul></li>";
-		food += "</ul></th></tr></tbody></table>";
+		food += "</ul>";
 		$("#result").html(food).fadeIn('slow');
 		if (!showResult){
 			$("#result").hide();
