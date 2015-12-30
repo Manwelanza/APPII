@@ -11,7 +11,6 @@ var showResult = false;
 
 $(document).ready(function() {
   $('#randomFood').submit(function(evento) {
-    $('#respuesta').hide();
     evento.preventDefault();
 	sugar = $('input:radio[name=sugar]:checked').val();
 	energy = $('input:radio[name=energy]:checked').val();
@@ -24,24 +23,23 @@ $(document).ready(function() {
 	else {
 		country = "World";
 		ajaxCall ();
+		alert ("Search completed");
 	}
-	alert ("Search completed");
   });
   
+  $("#randomFood2").click(function(){
+	  myFunction ();
+  });
   
   
 });
 
 function myFunction () {
-	  alert ("holaaaaaaa2");
-    $('#respuesta').hide();
-    //evento.preventDefault();
 	// ======================================================
 	// Hacemos todas las comprobaciones de las enfermedades
 	// ======================================================
 	
 	// diabetes
-	alert ("AAAA1");
 	if (document.getElementById("diabetes").checked) {
 		sugar = "sugarLow";
 	}
@@ -49,16 +47,15 @@ function myFunction () {
 		sugar = "sugarHigh";
 	}
 	
-	// Tensión alta
-	alert ("AAAA2");
+	// hypertension
 	if (document.getElementById("hypertension").checked) {
 		sodium = "sodiumLow";
 	}
 	else {
 		sodium = "sodiumHigh";
 	}
-	alert ("AAAA3");
-	// Obesidad
+	
+	// Obesity
 	if (document.getElementById("obesity").checked) {
 		energy = "energyLow";
 	}
@@ -66,19 +63,24 @@ function myFunction () {
 		energy = "energyHigh";
 	}
 	
-	// Colesterol alto
-	alert ("AAAA4");
+	// Cholesterol
 	if (document.getElementById("cholesterol").checked) {
 		fats = "fatsLow";
 	}
 	else {
 		fats = "fatsHigh";
 	}
-	country = "World";
-	// Nos conectamos con la base de datos
-	alert ("AAAA");
-	ajaxCall ();
-	alert ("Search completed");
+	
+	// Local Food
+	if ($('input:radio[name=gps2]:checked').val() == "gpsYes2") {
+		// Operacion con geolocalización
+		navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+	}
+	else {
+		country = "World";
+		ajaxCall ();
+		alert ("Search completed");
+	}
 };
   
   function ajaxCall () {

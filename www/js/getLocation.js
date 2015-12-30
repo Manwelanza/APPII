@@ -1,8 +1,6 @@
 var country = "World";
 
 function onSuccessGeolocation (position) {
-	$('#resultados').text("LOADING!!!!");
-	$('#resultados').show();
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
 	
@@ -29,9 +27,8 @@ function onSuccessGeolocation (position) {
 		{
 			country = "World";
 		}
-	$('#resultados').hide();
-	alert (country);
 	ajaxCall();
+	alert ("Search completed");
 	});
 }
 

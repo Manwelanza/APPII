@@ -40,9 +40,9 @@
 		<script>
 			$(document).ready(function(){
 			$("#diseases").hide();
-			$("#result").hide();
+			$("#food").hide();
 			$("#developers").hide();
-			$("#showFood").css ("color", "aqua");
+			$("#result").hide();
 				$("#showDiseases").click(function(){
 					$("#diseases").show();
 					$("#food").hide();
@@ -125,7 +125,7 @@
 			<!-- Fin de paneles informativos -->
 		
 			<div data-role="header">
-				<h1>Nombre aplicación</h1>
+				<h1>RandomFood!</h1>
 					<div data-role="navbar">
 						<ul>
 							<li>
@@ -143,8 +143,8 @@
 						</ul>
 					</div>
 			</div>
-			<div data-role="main" class="ui-content">
-				<div id="food">
+			<div data-role="main" class="ui-content" data-theme="b">
+				<div id="food" data-theme="b">
 					<form id="randomFood">
 						<fieldset data-role="controlgroup">
 							<legend>Sugar:</legend>
@@ -198,35 +198,35 @@
 					</form>
 				</div>
 				
-				<div id="diseases">
-					<form id="randomFoodDiseases">
+				<div id="diseases" data-theme="b">
+					<legend>Choose as many diseases as you have:</legend>
 					<fieldset data-role="controlgroup">
-						<legend>Choose as many diseases as you have:</legend>
-							<label for="diabetes">Diabetes</label>
-							<input type="checkbox" name="chooseDisease" id="diabetes" value="diabetes">
-							<label for="hypertension">Hypertension</label>
-							<input type="checkbox" name="chooseDisease" id="hypertension" value="hypertension">
-							<label for="coeliac">Coeliac</label>
-							<input type="checkbox" name="chooseDisease" id="coeliac" value="coeliac">
-							<label for="lactose">Lactose intolerant</label>
-							<input type="checkbox" name="chooseDisease" id="lactose" value="lactose">
-							<label for="nuts">Allergy nuts</label>
-							<input type="checkbox" name="chooseDisease" id="nuts" value="nuts">
-							<label for="obesity">Obesity</label>
-							<input type="checkbox" name="chooseDisease" id="obesity" value="obesity">
-							<label for="cholesterol">High cholesterol</label>
-							<input type="checkbox" name="chooseDisease" id="cholesterol" value="cholesterol">
+						<label for="diabetes">Diabetes</label>
+						<input type="checkbox" name="diabetes" id="diabetes" value="true">
+						<label for="hypertension">Hypertension</label>
+						<input type="checkbox" name="hypertension" id="hypertension" value="true">
+						<label for="obesity">Obesity</label>
+						<input type="checkbox" name="obesity" id="obesity" value="true">
+						<label for="cholesterol">High cholesterol</label>
+						<input type="checkbox" name="cholesterol" id="cholesterol" value="true">
 					</fieldset>
-					<button type="submit">Random food</button>
+					<br>
+					<fieldset data-role="controlgroup">
+						<legend>Do you want to eat local food?</legend>
+							<label for="gpsYes2">Yes</label>
+							<input type="radio" name="gps2" id="gpsYes2" value="gpsYes2">
+							<label for="gpsNo2">It doesn't matter!</label>
+							<input type="radio" name="gps2" id="gpsNo2" value="gpsNo2">	
+						</fieldset>	
 					
-				</form>
+					<button id="randomFood2">Random food</button>
 				</div>
 				
-				<div id="result">
+				<div id="result" data-theme="b">
 				
 				</div>
 				
-				<div id="developers">
+				<div id="developers" data-theme="b">
 					<h3>Developers: </h3>
 					<ul data-role="listview">
 						<li><a href="#developer01" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Manuel</a></li>
@@ -239,8 +239,8 @@
 			
 			</div>
 			
-			<div data-role="footer">
-				<h1>Mensaje final aplicación</h1>
+			<div data-role="footer" data-theme="b">
+				<h1>RandomFood!</h1>
 			</div>
 		</div> 
 		<script type="text/javascript" src="js/randomFood.js"></script>
