@@ -11,6 +11,7 @@ var showResult = false;
 
 $(document).ready(function() {
   $('#randomFood').submit(function(evento) {
+	  $("#loading").show();
     evento.preventDefault();
 	sugar = $('input:radio[name=sugar]:checked').val();
 	energy = $('input:radio[name=energy]:checked').val();
@@ -23,6 +24,7 @@ $(document).ready(function() {
 	else {
 		country = "World";
 		ajaxCall ();
+		$("#loading").hide();
 		alert ("Search completed");
 	}
   });
@@ -38,7 +40,7 @@ function myFunction () {
 	// ======================================================
 	// Hacemos todas las comprobaciones de las enfermedades
 	// ======================================================
-	
+	$("#loading").show();
 	// diabetes
 	if (document.getElementById("diabetes").checked) {
 		sugar = "sugarLow";
@@ -79,6 +81,7 @@ function myFunction () {
 	else {
 		country = "World";
 		ajaxCall ();
+		$("#loading").hide();
 		alert ("Search completed");
 	}
 };

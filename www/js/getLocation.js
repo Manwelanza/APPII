@@ -28,6 +28,7 @@ function onSuccessGeolocation (position) {
 			country = "World";
 		}
 	ajaxCall();
+	$("#loading").hide();
 	alert ("Search completed");
 	});
 }

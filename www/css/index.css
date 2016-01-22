@@ -113,3 +113,8 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+loading {
+    background:transparent url(images/loading.gif) center no-repeat;
+ }
+
